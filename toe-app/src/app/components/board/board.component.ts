@@ -11,5 +11,17 @@ export class BoardComponent implements OnInit {
   winner!: string;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.newGame();
+  }
+
+  newGame() {
+    this.squares = Array(9).fill(null);
+    this.winner = '';
+    this.xIsNext = true;
+  }
+
+  get player() {
+    return this.xIsNext ? 'X' : 'O';
+  }
 }
