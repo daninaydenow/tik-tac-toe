@@ -2,4 +2,9 @@
   height: 200px;
   width: 200px;
   border: 1px solid gray;
+  background-color: #2274a5;
+}
+
+.square:hover {
+  background-color: #477e9e;
 }
