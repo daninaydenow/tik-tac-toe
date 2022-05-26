@@ -9,6 +9,8 @@ export class BoardComponent implements OnInit {
   squares!: any[];
   xIsNext!: boolean;
   winner!: string;
+  xWinsCount: number = 0;
+  oWinsCount: number = 0;
   constructor() {}
 
   ngOnInit(): void {
@@ -29,6 +31,12 @@ export class BoardComponent implements OnInit {
     this.squares.splice(idx, 1, this.player);
     this.xIsNext = !this.xIsNext;
     this.winner = this.calculateWinner();
+    if (this.winner === 'X') {
+      this.xWinsCount += 1;
+    }
+    if (this.winner === 'O') {
+      this.oWinsCount += 1;
+    }
   }
 
   calculateWinner() {
