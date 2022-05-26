@@ -18,6 +18,7 @@ export class BoardComponent implements OnInit {
   }
 
   newGame(): void {
+    // Reset the board
     this.squares = Array(9).fill(null);
     this.winner = '';
     this.xIsNext = true;
@@ -28,12 +29,15 @@ export class BoardComponent implements OnInit {
   }
 
   makeMove(idx: number): void {
+    // stop the player from making more moves after the winner is computed
     if (this.winner === 'X' || this.winner === 'O') {
       return;
     }
+
     this.squares.splice(idx, 1, this.player);
     this.xIsNext = !this.xIsNext;
     this.winner = this.calculateWinner();
+    // winns counter for X and O
     if (this.winner === 'X') {
       this.xWinsCount += 1;
     }
