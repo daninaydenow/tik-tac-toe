@@ -28,6 +28,9 @@ export class BoardComponent implements OnInit {
   }
 
   makeMove(idx: number): void {
+    if (this.winner === 'X' || this.winner === 'O') {
+      return;
+    }
     this.squares.splice(idx, 1, this.player);
     this.xIsNext = !this.xIsNext;
     this.winner = this.calculateWinner();
